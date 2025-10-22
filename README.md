@@ -3,9 +3,9 @@
 EnrichProfile is a platform designed to collect visitor consent, gather email addresses, and enrich user profiles using a backend API. It consists of three main components:
 
 
+## 🎬 Demo Video
+[![Watch the demo video](demo_thumbnail.png)](https://drive.google.com/file/d/1LJejfz2LEo8jmBemL9aqd8CF0pPCH_6g/view?usp=sharing)
 
-## Demo Video
-[Watch the demo video](https://drive.google.com/file/d/1LJejfz2LEo8jmBemL9aqd8CF0pPCH_6g/view?usp=drive_link)
 
 1. **Frontend**: A React-based web application.
 2. **Backend**: An Express.js server that handles profile enrichment and email notifications.
