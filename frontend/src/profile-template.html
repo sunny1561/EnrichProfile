@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Enriched Profile Report</title>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      margin: 50px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    h1 {
+      font-size: 20px;
+      text-align: center;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+    h2 {
+      font-size: 16px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+      margin-top: 25px;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .section p {
+      margin: 5px 0;
+    }
+    .section-item {
+      margin-bottom: 10px;
+    }
+    .label {
+      font-weight: bold;
+    }
+    .summary, .overview {
+      text-align: justify;
+    }
+    .skill-list {
+      display: inline;
+    }
+    .skill {
+      display: inline-block;
+      margin-right: 5px;
+      padding: 2px 5px;
+      background-color: #f0f0f0;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 Enriched Profile Report</h1>
+
+  <div class="section">
+    <p><span class="label">Full Name:</span> {{profile.full_name}}</p>
+    <p><span class="label">Headline:</span> {{profile.headline}}</p>
+    <p><span class="label">Location:</span> {{profile.location}}</p>
+    <p><span class="label">Industry:</span> {{profile.industry}}</p>
+    <p><span class="label">Seniority:</span> {{profile.seniority}}</p>
+    <p><span class="label">Job Function:</span> {{profile.job_function}}</p>
+  </div>
+
+  <h2>🏢 Company Details</h2>
+  <div class="section">
+    <p><span class="label">Name:</span> {{company.name}}</p>
+    <p><span class="label">Domain:</span> {{company.domain}}</p>
+    <p><span class="label">Founded:</span> {{company.founded_at}}</p>
+    <p><span class="label">Headquarters:</span> {{company.headquarter}}</p>
+    <p><span class="label">Industry:</span> {{company.industry}}</p>
+    <p><span class="label">Size:</span> {{company.size}}</p>
+    <p><span class="label">Website:</span> {{company.website}}</p>
+    <p><span class="label">Overview:</span></p>
+    <p class="overview">{{company.overview}}</p>
+  </div>
+
+  <h2>🎓 Education</h2>
+  <div class="section">
+    {{#if profile.education.length}}
+      {{#each profile.education}}
+        <div class="section-item">
+          <p>
+            <span class="label">{{this.school}}</span> - {{this.degree}}
+            ({{this.start}} - {{this.end}})
+          </p>
+        </div>
+      {{/each}}
+    {{else}}
+      <p>N/A</p>
+    {{/if}}
+  </div>
+
+  <h2>💼 Experience</h2>
+  <div class="section">
+    {{#if profile.experience.length}}
+      {{#each profile.experience}}
+        <div class="section-item">
+          <p>
+            <span class="label">{{this.title}}</span> at {{this.company}}
+            ({{this.start}} - {{this.end}})
+          </p>
+          {{#if this.summary}}
+            <p class="summary">{{this.summary}}</p>
+          {{/if}}
+        </div>
+      {{/each}}
+    {{else}}
+      <p>N/A</p>
+    {{/if}}
+  </div>
+
+  <h2>🧩 Skills</h2>
+  <div class="section skill-list">
+    {{#if profile.skills.length}}
+      {{#each profile.skills}}
+        <span class="skill">{{this}}</span>
+      {{/each}}
+    {{else}}
+      <p>N/A</p>
+    {{/if}}
+  </div>
+
+  <h2>📞 Contact Info</h2>
+  <div class="section">
+    <p><span class="label">Emails:</span> {{profile.email}}</p>
+    <p><span class="label">Work Email:</span> {{profile.work_email}}</p>
+    <p><span class="label">Phone:</span> {{profile.phone}}</p>
+  </div>
+
+  <h2>📝 Summary</h2>
+  <div class="section">
+    <p class="summary">{{profile.summary}}</p>
+  </div>
+</body>
+</html>

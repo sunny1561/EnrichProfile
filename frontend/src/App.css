@@ -1,0 +1,189 @@
+/* =================================
+   Global Styles & Font
+   ================================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =================================
+   Main App Layout
+   - Uses flexbox to center the card vertically and horizontally
+   - Adds a subtle background gradient
+   ================================= */
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* =================================
+   Enrichment Card
+   - Modern white card with shadow and rounded corners
+   - Animation to fade in and slide up on load
+   ================================= */
+.enrichment-container {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  animation: fadeInSlideUp 0.5s ease-out;
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   Typography
+   ================================= */
+.enrichment-container h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.enrichment-container .subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* =================================
+   Form, Input & Button
+   ================================= */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="email"] {
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  /* Smooth transition for focus */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Nice blue outline on focus */
+input[type="email"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+input[type="email"]:disabled {
+  background: #f9f9f9;
+}
+
+button[type="submit"] {
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  /* Flexbox to center spinner and text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* Smooth transitions */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect ONLY when not disabled */
+button[type="submit"]:not(:disabled):hover {
+  background-color: #0056b3;
+  /* Lifts the button slightly */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"]:disabled {
+  /* Keep the color but fade it */
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* =================================
+   Loading Spinner
+   - Simple CSS spinner
+   ================================= */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =================================
+   Success & Error Messages
+   - Styled boxes with fade-in animation
+   ================================= */
+.message {
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.success-message {
+  background: #e6f7ec;
+  color: #237844;
+  border: 1px solid #b7e1c7;
+}
+
+.error-message {
+  background: #fdecea;
+  color: #a42828;
+  border: 1px solid #f7c6c5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
